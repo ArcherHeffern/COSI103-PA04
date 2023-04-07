@@ -15,7 +15,7 @@ router.get('/transaction/', isLoggedIn, async (req, res) => {
     res.locals.group = false
     if (req.query.groupBy == 'category') {
         transactions = await transaction.aggregate([
-            { // TODO: complete
+            {
                 $group: {
                     _id: '$category',
                     total: { $sum: '$amount' }
