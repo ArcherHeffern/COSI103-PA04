@@ -11,19 +11,18 @@ isLoggedIn = (_,res,next) => {
   }
 
 router.get('/transaction/', isLoggedIn, async (req, res) => {
-    // TODO: Implement the grouping and sorting logic
     let transactions
-    req.locals.group = false
+    res.locals.group = false
     if (req.query.groupBy == 'category') {
         transactions = await transaction.aggregate([
-            {
+            { // TODO: complete
                 $group: {
                     _id: '$category',
                     total: { $sum: '$amount' }
                 }
             }
         ])
-        req.locals.group = true
+        res.locals.group = true
         console.log(transactions)
     }
     else if (req.query.sortBy == 'category') {

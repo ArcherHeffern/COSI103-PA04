@@ -54,8 +54,8 @@
     <th>amount</th>
     <% transactions.forEach((transaction => { %>
         <tr>
-            <td><%= transaction.category%></td>
-            <td><%= transaction.amount %></td>
+            <td><%= transaction._id%></td>
+            <td><%= transaction.total %></td>
         </tr>
    <% }))%>
 </table>
