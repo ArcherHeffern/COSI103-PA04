@@ -26,7 +26,7 @@ const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  console.log(`we are connected!!!\nServer running at http://localhost:${process.env.PORT}`)
+  console.log(`we are connected!!!\nServer running at http://localhost:${process.env.PORT||3000}`)
 });
 
 
