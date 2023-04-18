@@ -69,7 +69,7 @@ router.get('/transaction/edit/:transactionId', isLoggedIn, async (req, res) => {
 })
 
 
-router.put('/transaction', isLoggedIn, async (req, res) => {
+router.post('/transaction/put', isLoggedIn, async (req, res) => {
     const {description, amount, category, date, itemId} = req.body
     await transaction.findOneAndUpdate(
         {_id:itemId},
